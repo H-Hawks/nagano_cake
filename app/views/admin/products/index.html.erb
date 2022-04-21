@@ -1,12 +1,11 @@
 <h2>商品一覧</h2>
-<div class="table">
+<table class="table">
  <thead>
   <tr>
    <th>商品ID</th>
    <th>商品名</th>
    <th>税抜価格</th>
    <th>ジャンル</th>
-   <th></th>
   </tr>
  </thead>
  <tbody>
@@ -15,8 +14,8 @@
    <td><%= product.id %></td>
    <td><%= product.name %></td>
    <td><%= product.non_taxed_price %></td>
-   <td></td>
+   <td><%= product.genre.name %></td>
   </tr>
   <% end %>
  </tbody>
-</div>
+</table>

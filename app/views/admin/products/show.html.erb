@@ -1,2 +1,12 @@
-<h1>Admin::Products#show</h1>
-<p>Find me in app/views/admin/products/show.html.erb</p>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-3">
+ <h2>商品詳細</h2>
+ <%= image_tag @product.image,size:"200x200" %>
+  </div>
+  <div class="col-sm-8 offset-1">
+    <p>商品名:<%= @product.name %></p>
+    <p>商品説明:<%= @product.description %></p>
+    <p>税込価格:<%= @product.add_tax_price.to_s(:dalimited) %>円</p>
+  </div>
+
