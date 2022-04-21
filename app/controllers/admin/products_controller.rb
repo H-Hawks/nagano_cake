@@ -7,6 +7,7 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.save
     redirect_to admin_product_path(@product)
+  end
 
   def index
     @products = Product.all
@@ -21,4 +22,5 @@ class Admin::ProductsController < ApplicationController
   private
   def product_params
     params.require(:product).permit(:name,:image,:description,:non_taxed_price,:genre_id,:is_active)
+  end
 end

@@ -22,6 +22,21 @@
               <ul class="navbar-nav ml-auto">
               <% if end_user_signed_in? %>
                 <li>
+                  <%= link_to  end_user_my_page_path, class: "nav-link text-light" do %>
+                    <button type="button" class="btn btn-outline-light btn-sm">マイページ</button>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to  products_path, class: "nav-link text-light" do %>
+                    <button type="button" class="btn btn-outline-light btn-sm">商品一覧</button>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to  in_cart_products_path, class: "nav-link text-light" do %>
+                    <button type="button" class="btn btn-outline-light btn-sm">カート</button>
+                  <% end %>
+                </li>
+                <li>
                   <%= link_to destroy_end_user_session_path, method: :delete, class: "nav-link text-light" do %>
                     <button type="button" class="btn btn-outline-light btn-sm">ログアウト</button>
                   <% end %>
