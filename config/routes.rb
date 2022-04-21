@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  namespace :public do
-   root :to => 'homes#top'
+  scope module: :public do
+   root to: "homes#top"
    get 'homes/about' => 'homes#about'
-   resources :products, only:[:index,:show] 
+   resources :products, only:[:index,:show]
    resources :in_cart_products, only:[:index,:create,:update,:destroy]
    resources :orders, only:[:new,:create,:show]
    get '/end_user/my_page' => 'end_users#show'
