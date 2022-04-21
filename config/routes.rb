@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  namespace :public do
+  scope module: :public do
    root :to => 'homes#top'
    get 'homes/about' => 'homes#about'
    resources :products, only:[:index,:show] 
