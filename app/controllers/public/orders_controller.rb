@@ -1,12 +1,14 @@
 class Public::OrdersController < ApplicationController
-  before_action :authenticate_user!
   def new
-    
-    @user = current_user.id
-    @address = Order.address.new
-    if @address.save
-      redirect_to order_path
-    end
+    @user = current_end_user
+    @address = Address.new
+  end
+
+  def comfirm
+  end
+
+  def create
+    @address.save
   end
 
   def show
