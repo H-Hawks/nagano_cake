@@ -1,7 +1,9 @@
 <h2>商品一覧</h2> 
+<div class="float-right">
 <%= link_to new_admin_product_path, class: "btn btn-secondary", method: :get do %>
  <i class="fas fa-plus-circle"></i>
 <% end %>
+</div>
 <table class="table">
  <thead>
   <tr>
@@ -23,4 +25,7 @@
   </tr>
   <% end %>
  </tbody>
-</table>
+ </table>
+ <div class="d-flex justify-content-center">
+  <%= paginate @products %>
+ </div>
