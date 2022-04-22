@@ -1,0 +1,98 @@
+* [33m427dc2e[m[33m ([m[1;36mHEAD -> [m[1;32mpublic_order_tokushige[m[33m)[m merge simasu
+[31m|[m * [33m30d3ee1[m[33m ([m[1;31morigin/develop[m[33m)[m Merge pull request #19 from H-Hawks/end_user-login
+[31m|[m[31m/[m[33m|[m 
+[31m|[m * [33m47de28f[m ADD-end_user-login
+[31m|[m[31m/[m  
+*   [33mb2d5f91[m[33m ([m[1;32mdevelop[m[33m, [m[1;32madmin_genre[m[33m)[m Merge pull request #18 from H-Hawks/admin-login
+[34m|[m[35m\[m  
+[34m|[m *   [33mf5cac54[m Merge branch 'develop' into admin-login
+[34m|[m [36m|[m[34m\[m  
+[34m|[m [36m|[m[34m/[m  
+[34m|[m[34m/[m[36m|[m   
+* [36m|[m   [33mf56e9b8[m Merge pull request #17 from H-Hawks/admin_genre
+[1;32m|[m[1;33m\[m [36m\[m  
+[1;32m|[m * [36m\[m   [33mb1d77c0[m Merge branch 'develop' into admin_genre
+[1;32m|[m [1;34m|[m[1;32m\[m [36m\[m  
+[1;32m|[m [1;34m|[m[1;32m/[m [36m/[m  
+[1;32m|[m[1;32m/[m[1;34m|[m [36m|[m   
+* [1;34m|[m [36m|[m   [33m9b0668a[m Merge pull request #16 from H-Hawks/fix-tables
+[1;36m|[m[31m\[m [1;34m\[m [36m\[m  
+[1;36m|[m * [1;34m|[m [36m|[m [33me24d1db[m FIX tables
+[1;36m|[m[1;36m/[m [1;34m/[m [36m/[m  
+[1;36m|[m * [36m/[m [33ma21a0c4[m[33m ([m[1;31morigin/admin_genre[m[33m)[m add admin_genre
+[1;36m|[m[1;36m/[m [36m/[m  
+[1;36m|[m * [33mfba4f76[m ADD admin-login Fix routes
+[1;36m|[m[1;36m/[m  
+*   [33m550252e[m Merge pull request #14 from H-Hawks/setting-namespace
+[32m|[m[33m\[m  
+[32m|[m * [33mb8c9326[m ADD namespace
+[32m|[m[32m/[m  
+*   [33mdc2bfc0[m Merge pull request #13 from H-Hawks/table-addresses
+[34m|[m[35m\[m  
+[34m|[m * [33m28bb334[m ADD table-addresses
+[34m|[m[34m/[m  
+*   [33m81e649f[m Merge pull request #12 from H-Hawks/setting-devise
+[36m|[m[1;31m\[m  
+[36m|[m *   [33mcf3570f[m Merge branch 'develop' into setting-devise
+[36m|[m [1;32m|[m[36m\[m  
+[36m|[m [1;32m|[m[36m/[m  
+[36m|[m[36m/[m[1;32m|[m   
+* [1;32m|[m   [33md265c82[m Merge pull request #11 from H-Hawks/table-order_details
+[1;34m|[m[1;35m\[m [1;32m\[m  
+[1;34m|[m * [1;32m|[m [33mcec8f1d[m Add table-order_details
+[1;34m|[m[1;34m/[m [1;32m/[m  
+* [1;32m|[m   [33mca66f01[m Merge pull request #10 from H-Hawks/table_order
+[1;36m|[m[31m\[m [1;32m\[m  
+[1;36m|[m * [1;32m\[m   [33m5c21fba[m Merge branch 'develop' into table_order
+[1;36m|[m [32m|[m[1;36m\[m [1;32m\[m  
+[1;36m|[m [32m|[m[1;36m/[m [1;32m/[m  
+[1;36m|[m[1;36m/[m[32m|[m [1;32m|[m   
+* [32m|[m [1;32m|[m   [33m0366b14[m Merge pull request #9 from H-Hawks/table_in_cart_product2
+[34m|[m[35m\[m [32m\[m [1;32m\[m  
+[34m|[m * [32m|[m [1;32m|[m [33mcef8456[m[33m ([m[1;31morigin/table_in_cart_product2[m[33m, [m[1;32mtable_in_cart_product2[m[33m)[m add table InCartProduct
+[34m|[m[34m/[m [32m/[m [1;32m/[m  
+[34m|[m * [1;32m/[m [33mca814f9[m[33m ([m[1;31morigin/table_order[m[33m, [m[1;32mtable_order[m[33m)[m add table order
+[34m|[m[34m/[m [1;32m/[m  
+* [1;32m|[m   [33m282b421[m Merge pull request #8 from H-Hawks/table_genre
+[36m|[m[1;31m\[m [1;32m\[m  
+[36m|[m * [1;32m\[m   [33mbad4aa1[m Merge branch 'develop' into table_genre
+[36m|[m [1;32m|[m[36m\[m [1;32m\[m  
+[36m|[m [1;32m|[m[36m/[m [1;32m/[m  
+[36m|[m[36m/[m[1;32m|[m [1;32m|[m   
+* [1;32m|[m [1;32m|[m   [33m1b3bd94[m Merge pull request #7 from H-Hawks/table_products
+[1;34m|[m[1;35m\[m [1;32m\[m [1;32m\[m  
+[1;34m|[m * [1;32m|[m [1;32m|[m [33m4a28268[m[33m ([m[1;31morigin/table_products[m[33m, [m[1;32mtable_products[m[33m)[m add table product
+[1;34m|[m[1;34m/[m [1;32m/[m [1;32m/[m  
+[1;34m|[m * [1;32m/[m [33m3f6964f[m[33m ([m[1;31morigin/table_genre[m[33m, [m[1;32mtable_in_cart_product[m[33m, [m[1;32mtable_genre[m[33m)[m add table genre
+[1;34m|[m[1;34m/[m [1;32m/[m  
+[1;34m|[m * [33m4b96856[m ADD devise settings
+[1;34m|[m[1;34m/[m  
+* [33m730465e[m install-gems
+*   [33m60b1b97[m Merge pull request #6 from H-Hawks/gems
+[1;36m|[m[31m\[m  
+[1;36m|[m * [33mf3d803c[m[33m ([m[1;31morigin/gems[m[33m, [m[1;32mgems[m[33m)[m add kaminari gem
+[1;36m|[m[1;36m/[m  
+*   [33mc022020[m Merge pull request #5 from H-Hawks/install-enum
+[32m|[m[33m\[m  
+[32m|[m *   [33m90523db[m Merge branch 'develop' into install-enum
+[32m|[m [34m|[m[32m\[m  
+[32m|[m [34m|[m[32m/[m  
+[32m|[m[32m/[m[34m|[m   
+* [34m|[m   [33mc3ef4a8[m Merge pull request #4 from H-Hawks/install-bootstrap
+[36m|[m[1;31m\[m [34m\[m  
+[36m|[m * [34m|[m [33m7e55a0c[m ADD bootstrap
+* [1;31m|[m [34m|[m   [33mf07b9b3[m Merge pull request #3 from H-Hawks/install_kaminari
+[1;32m|[m[1;33m\[m [1;31m\[m [34m\[m  
+[1;32m|[m * [1;31m|[m [34m|[m [33mda4c020[m[33m ([m[1;31morigin/install_kaminari[m[33m, [m[1;32minstall_kaminari[m[33m)[m add kaminari
+[1;32m|[m [1;31m|[m[1;31m/[m [34m/[m  
+[1;32m|[m [1;31m|[m * [33mfa101ee[m ADD enum
+[1;32m|[m [1;31m|[m[1;32m/[m  
+[1;32m|[m[1;32m/[m[1;31m|[m   
+* [1;31m|[m [33mbb28251[m ADD activestorage
+[1;31m|[m[1;31m/[m  
+*   [33mbed7a2f[m Merge pull request #1 from H-Hawks/install-devise
+[1;34m|[m[1;35m\[m  
+[1;34m|[m * [33m3136614[m ADD devise
+[1;34m|[m[1;34m/[m  
+* [33m307d26a[m first commit
+* [33m13ff0e4[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m first commit

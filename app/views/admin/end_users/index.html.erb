@@ -1,1 +1,29 @@
-end_users一覧
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <table class="table table-borderless">
+        <thead class="thead-light">
+          <tr>
+            <th>会員一覧</th>
+          </tr>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= @end_users.each do |e| %>
+          <tr>
+            <td><%= e.id %></td>
+            <td><%= e.name %></td>
+            <td><%= e.email %></td>
+            <td><%= e.%></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
