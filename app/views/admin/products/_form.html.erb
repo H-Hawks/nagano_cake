@@ -1,9 +1,6 @@
-<h2>新規商品登録</h2>
- 
-  <%= form_with model: @product, url:admin_products_path, method: :post do |f| %>
- <div class="container">
-  <div class="row">
-　 <div class="col-sm-5 mx-auto">
+<div class="container">
+ <div class="row">
+　<div class="col-sm-5 mx-auto">
    
    <%= f.label :商品画像 %>
    
@@ -26,7 +23,7 @@
   
   <div class="form-group">
    <%= f.label :ジャンル %>
-   <%= f.collection_select :genre_id,@genres,:id,:name,prompt: "選択してください" %>
+   <%= f.collection_select :genre_id,genres,:id,:name,prompt: "選択してください" %>
   </div>
   
   <div class="form-group">
@@ -37,12 +34,7 @@
    <%= f.label :is_active, "販売停止中" %>
   </div>
   
+  
   </div>
  </div>
 </div>
-  
-  <div class="text-center">
-   <%= f.submit "新規登録", class: "btn btn-lg btn-success" %>
-   </div>
-  
- <% end %>
