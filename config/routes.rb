@@ -10,8 +10,8 @@ Rails.application.routes.draw do
    resources :in_cart_products, only:[:index,:create,:update,:destroy]
    resources :orders, only:[:new,:create,:show]
    get '/end_user/my_page' => 'end_users#show'
-   resource :end_user, only:[:edit,:update]
-   resources :addresses
+   resource :end_user, only:[:show,:edit,:update,:unsubcribe,:withdrawl]
+   resources :addresses,only: [:index,:create,:edit,:update,:destroy]
   end
   namespace :admin do
    resources :products

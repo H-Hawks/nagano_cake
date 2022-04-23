@@ -10,7 +10,7 @@ before_action :authenticate_end_user!
     @address = Address.new(address_params)
     @address.end_user_id = current_end_user.id
     @address.save
-    redirect_to '/addresses'
+    redirect_to addresses_path
   end
 
   def edit
@@ -20,7 +20,7 @@ before_action :authenticate_end_user!
   def update
     @address = Address.find(params[:id])
     if @address.update(address_params)
-      redirect_to addresses_path(@address.id)
+      redirect_to addresses_path
     else
       render "edit"
     end

@@ -1,3 +1,11 @@
+ <% if @address.errors.any? %>
+  <%= @address.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @address.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
  <h3>配送先編集</h3>
   <%= form_with model: @address do |f| %>
     <h4>郵便番号</h4>
