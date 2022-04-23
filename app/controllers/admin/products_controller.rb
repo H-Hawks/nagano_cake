@@ -34,11 +34,4 @@ class Admin::ProductsController < ApplicationController
   def product_params
    params.require(:product).permit(:name,:image,:description,:non_taxed_price,:genre_id,:is_active)
   end
-<<<<<<< HEAD
 end
-=======
-  
-end
-
-   
->>>>>>> origin/develop
