@@ -12,6 +12,7 @@ validates :genre_id,presence: true
 validates :non_taxed_price,presence: true
 validates :is_active,inclusion:{in:[true,false]}
 
+
 def add_tax_price
   (self.non_taxed_price * 1.10).round
 end
