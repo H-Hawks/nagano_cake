@@ -1,12 +1,12 @@
 class Public::ProductsController < ApplicationController
-  def index
-   @products = Product.page(params[:page])
-  end
+ def index
+  @products = Product.page(params[:page])
+ end
 
-  def show
+ def show
   @product = Product.find(params[:id])
-  end
-  
-  
+  @in_cart_product = InCartProduct.new
+ end
+ 
 
 end
