@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+
+ 
 has_one_attached :image
 has_many :orders
 has_many :order_details,dependent: :destroy
@@ -11,6 +13,7 @@ validates :image,presence: true
 validates :genre_id,presence: true
 validates :non_taxed_price,presence: true
 validates :is_active,inclusion:{in:[true,false]}
+
 
 
 def add_tax_price

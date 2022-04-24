@@ -2,11 +2,9 @@ Rails.application.routes.draw do
   scope module: :public do
    root :to => 'homes#top'
    get 'homes/about' => 'homes#about'
-   resources :products, only:[:index,:show] do
-    get 'order' => 'orders#show'
-    post 'order/confirm' => 'orders#confirm'
-    post 'order' => 'orders#create'
-   end
+   post "order/comfirm" => "orders#comfirm"
+   get "order/thanks" => "order#thanks"
+   resources :products, only:[:index,:show]
    resources :in_cart_products, only:[:index,:create,:update,:destroy]
    delete '/in_cart_products' => 'in_cart_products#all_destroy'
    resources :orders, only:[:new,:create,:show]
