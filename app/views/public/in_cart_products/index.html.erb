@@ -1,9 +1,57 @@
+<div class="container">
+ <div class="row">
+  <div class="col-sm-10 mx-auto">
 <h2>ショッピングカート</h2>
-<% @in_cart_products.each do |in_cart_product| %>
+ <%= button_to "カートを空にする",'/in_cart_products',method: :delete, class: "btn btn-danger float-right mb-2" %>
+ <table class="table table-bordered border-dark">
+  <thead class="table-secondary">
+   <tr>
+    <th scope="col">商品名</th>
+    <th scope="col">単価（税込）</th>
+    <th scope="col">数量</th>
+    <th scope="col">小計</th>
+    <th scope="col"></th>
+   </tr>
+  </thead>
+  <tbody>
+   <% @in_cart_products.each do |in_cart_product| %>
+   <tr>
+    <td><%= image_tag in_cart_product.product.image, size: "60x40" %>
+        <%= in_cart_product.product.name %></td>
+    <td><%= in_cart_product.product.add_tax_price %></td>
+    <td><%= form_with model: in_cart_product, url: in_cart_product_path(in_cart_product.id), method: :patch do |f| %>
+     　  <%= f.select :quantity,*[1..9] %>
+        <%= f.submit "変更", class: "btn btn-success" %>
+        <% end %>
+    </td>
+   
+    <td><%= in_cart_product.subtotal %></td>
+        <% @sum += in_cart_product.subtotal %>
+    <td><%= button_to "削除する", in_cart_product_path(in_cart_product.id), method: :delete, class: "btn btn-danger" %></td>
+   </tr>
+   <% end %>
+  </tbody>
+ </table>
+ <%= button_to "買い物を続ける", root_path, method: :get, class: "btn btn-primary" %>
+<div class="d-flex justify-content-end">
+ <div class="col-sm-4">
+  <table class="table table-bordered border-dark">
+  <tbody>
+   <tr>
+   <th class="table-secondary">合計金額</th>
+   <td><%= @sum %></td>
+   </tr>
+  </tbody>
+  </table>
+  </div>
+ </div>
+　</div>
+ </div>
+</div>
+  
+   
+ 
+ 
+ 
 
- <%= image_tag in_cart_product.product.image, size: "60x40" %>
- <%= in_cart_product.product.name %>
- <%= in_cart_product.quantity %>
- <%= in_cart_product.product.add_tax_price %>
 
-<% end %>
