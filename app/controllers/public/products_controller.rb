@@ -4,9 +4,7 @@ class Public::ProductsController < ApplicationController
 @products = Product.page(params[:page])
  end
 
-
-
- def show
+def show
 @product = Product.find(params[:id])
 @in_cart_product = InCartProduct.new
  end
