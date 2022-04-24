@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-15">
+      <%= form_with model: @order, url: order_comfirm_path, locale: true do |f| %>
+      <table class="table table-borderless">
+        <thead class="thead-light">
+          <tr>
+            <th>注文情報確認</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>商品名</td>
+          </tr>
+          <tr>
+            <td>単価(税込)</td>
+          </tr>
+          <tr>
+            <td>数量</td>
+          </tr>
+          <tr>
+            <td>小計</td>
+          </tr>
+          <tr>
+            <td>送料</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>商品合計</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>請求金額</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-borderless">
+        <thead class="thead-light">
+          <tr>
+            <th>支払方法</th>
+          </tr>
+        </thead>
+      </table>
+      <tbody>
+        <tr>
+          <td><%= @order.payment_method %></td>
+        </tr>
+      </tbody>
+      <table class="table table-borderless">
+        <thead class="thead-light">
+          <tr>
+            <th>お届け先</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @order.postcode %><%= @order.address %></td>
+            <td><%= @order.name %></td>
+          </tr>
+          <tr>
+            <td><%= f.submit "注文を確定する" %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
