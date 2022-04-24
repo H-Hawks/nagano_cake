@@ -1,15 +1,11 @@
-<div class="container">
- <div class="row">
-  <div class="col-sm-10">
-
-<h2 class="mt-2">商品一覧</h2> 
-<div class="float-right mb-3">
+<h2>商品一覧</h2> 
+<div class="float-right">
 <%= link_to new_admin_product_path, class: "btn btn-secondary", method: :get do %>
  <i class="fas fa-plus-circle"></i>
 <% end %>
 </div>
 <table class="table">
- <thead class="table-light">
+ <thead>
   <tr>
    <th>商品ID</th>
    <th>商品名</th>
@@ -33,6 +29,3 @@
  <div class="d-flex justify-content-center">
   <%= paginate @products %>
  </div>
-  </div>
- </div>
-</div>
