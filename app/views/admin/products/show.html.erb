@@ -1,34 +1,25 @@
 <div class="container">
  <div class="row">
-  <div class="col-sm-3 ml-3">
- 　<h2 class="mb-3">商品詳細</h2>
+  <div class="col-sm-4">
+ <h2>商品詳細</h2>
  <% if @product.image.attached? %>
- <%= image_tag @product.image,size:"200x150" %>
+ <%= image_tag @product.image,size:"200x200" %>
  <% else %>
- <%= image_tag 'no_image',size:'200x150' %>
+ <%= image_tag 'no_image',size:'200x200' %>
  <% end %>
-   </div>
-   <div class="col-sm-3 mt-3">
-    <h5>商品名</p>
-    <p>商品説明</p>
-    <p>ジャンル</p>
-    <p>税込価格(税抜価格)</p>
-    <p>販売ステータス</p>
-   </div>
-  
-   <div class="col-sm-5 mt-3">
-    <h5><%= @product.name %></p>
-    <p><%= @product.description %></p>
-    <p><%= @product.genre.name %></p>
-    <p><%= @product.add_tax_price.to_s(:dalimited) %>(<%= @product.non_taxed_price %>)円</p>
-    <p><%= @product.is_active ? '販売中' : '販売停止中' %></p>
   </div>
- </div>
-</div>
+  <div class="col-sm-8">
+    <p>商品名:<%= @product.name %></p>
+    <p>商品説明:<%= @product.description %></p>
+    <p>ジャンル:<%= @product.genre.name %></p>
+    <p>税込価格:<%= @product.add_tax_price.to_s(:dalimited) %>円（税抜価格:<%= @product.non_taxed_price %>円）</p>
+    <p>販売ステータス:<%= @product.is_active ? '販売中' : '販売停止中' %></p>
+  </div>
+  </div>
   
    <div class="text-center">
    <%= button_to "編集する",  edit_admin_product_path(@product.id),method: :get, class: "btn btn-lg btn-success" %>
    </div>
-  
- 
+ </div>
+</div>
 
