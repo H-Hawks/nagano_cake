@@ -6,10 +6,11 @@ Rails.application.routes.draw do
    get "order/thanks" => "order#thanks"
    resources :products, only:[:index,:show]
    resources :in_cart_products, only:[:index,:create,:update,:destroy]
+   delete '/in_cart_products' => 'in_cart_products#all_destroy'
    resources :orders, only:[:new,:create,:show]
    get '/end_user/my_page' => 'end_users#show'
-   resource :end_user, only:[:show,:edit,:update,:unsubcribe,:withdrawl]
-   resources :addresses,only: [:index,:create,:edit,:update,:destroy]
+   resource :end_user, only:[:edit,:update]
+   resources :addresses
   end
   namespace :admin do
    resources :products
