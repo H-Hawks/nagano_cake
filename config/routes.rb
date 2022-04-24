@@ -2,8 +2,13 @@ Rails.application.routes.draw do
   scope module: :public do
    root :to => 'homes#top'
    get 'homes/about' => 'homes#about'
-   resources :products, only:[:index,:show]
+   resources :products, only:[:index,:show] do
+    get 'order' => 'orders#show'
+    post 'order/confirm' => 'orders#confirm'
+    post 'order' => 'orders#create'
+   end
    resources :in_cart_products, only:[:index,:create,:update,:destroy]
+   delete '/in_cart_products' => 'in_cart_products#all_destroy'
    resources :orders, only:[:new,:create,:show]
    get '/end_user/my_page' => 'end_users#show'
    resource :end_user, only:[:edit,:update]

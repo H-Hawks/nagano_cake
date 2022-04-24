@@ -1,1 +1,29 @@
-end_users一覧
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <table class="table table-borderless">
+        <thead class="thead-light">
+          <tr>
+            <th>会員一覧</th>
+          </tr>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @end_users.each do |e| %>
+          <tr>
+            <td><%= e.id %></td>
+            <td><%= link_to e.last_name+e.first_name, admin_end_user_path(e.id) %></td>
+            <td><%= e.email %></td>
+            <td><%= e.is_deleted ? '退会' : '有効' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
