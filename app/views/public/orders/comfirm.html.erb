@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-15">
-      <%= form_with model: @order, url: order_comfirm_path, locale: true do |f| %>
+      <%= form_with model: @order, url: orders_path, local: true do |f| %>
       <table class="table table-borderless">
         <thead class="thead-light">
           <tr>
@@ -9,29 +9,36 @@
           </tr>
         </thead>
         <tbody>
+          <% @in_cart_products.each do |in_cart_product| %>
           <tr>
             <td>商品名</td>
+            <td><%= in_cart_product.product.name %></td>
           </tr>
           <tr>
             <td>単価(税込)</td>
+            <td><%= in_cart_product.product.add_tax_price %></td>
           </tr>
           <tr>
             <td>数量</td>
+            <td><%= in_cart_product.quantity %></td>
           </tr>
           <tr>
             <td>小計</td>
+            <td><%= in_cart_product.subtotal %></td>
           </tr>
+          <% end %>
           <tr>
             <td>送料</td>
-            <td></td>
+            <td><%= 800 %></td>
           </tr>
           <tr>
             <td>商品合計</td>
-            <td></td>
+            <td><%= @total %></td>
           </tr>
           <tr>
             <td>請求金額</td>
-            <td></td>
+            <td><%= @total + 800 %></td>
+            <%= f.hidden_field :bill, :value => @total + 800 %>
           </tr>
         </tbody>
       </table>
@@ -45,6 +52,7 @@
       <tbody>
         <tr>
           <td><%= @order.payment_method %></td>
+          <%= f.hidden_field :payment_method, :value => @order.payment_method %>
         </tr>
       </tbody>
       <table class="table table-borderless">
@@ -57,6 +65,10 @@
           <tr>
             <td><%= @order.postcode %><%= @order.address %></td>
             <td><%= @order.name %></td>
+            <%= f.hidden_field :postcode, :value => @order.postcode %>
+            <%= f.hidden_field :address, :value => @order.address %>
+            <%= f.hidden_field :name, :value => @order.name %>
+            <%= f.hidden_field :order_status, :value => :waiting_for_deposit %>
           </tr>
           <tr>
             <td><%= f.submit "注文を確定する" %></td>

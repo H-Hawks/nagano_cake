@@ -12,41 +12,41 @@ class Public::InCartProductsController < ApplicationController
    redirect_to in_cart_products_path
   end
  end
-  
+
  def index
   @in_cart_products = InCartProduct.all
-  @sum = 0 
+  @sum = 0
  end
- 
+
  def update
   in_cart_product = InCartProduct.find(params[:id])
   #binding.pry
   in_cart_product.update(update_in_cart_product_params)
   redirect_to in_cart_products_path
  end
- 
+
  def destroy
   in_cart_product = InCartProduct.find(params[:id])
   in_cart_product.destroy
   redirect_to in_cart_products_path
  end
- 
+
  def all_destroy
   in_cart_products = InCartProduct.all
   in_cart_products.destroy_all
   redirect_to in_cart_products_path
  end
- 
 
-  
+
+
 private
   def in_cart_product_params
     params.require(:in_cart_product).permit(:product_id, :quantity)
   end
-  
+
   def update_in_cart_product_params
      params.require(:in_cart_product).permit(:quantity)
   end
-   
-  
+
+
 end

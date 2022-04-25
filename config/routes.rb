@@ -3,7 +3,7 @@ Rails.application.routes.draw do
    root :to => 'homes#top'
    get 'homes/about' => 'homes#about'
    post "order/comfirm" => "orders#comfirm"
-   get "order/thanks" => "order#thanks"
+   get "order/thanks" => "orders#thanks"
    resources :products, only:[:index,:show]
    resources :in_cart_products, only:[:index,:create,:update,:destroy]
    delete '/in_cart_products' => 'in_cart_products#all_destroy'

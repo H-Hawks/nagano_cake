@@ -13,6 +13,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def comfirm
+    @in_cart_products = InCartProduct.all
     @order = Order.new(order_params)
     if params[:order][:select_address] == '0'
       @order.payment_method = params[:order][:payment_method]
@@ -32,13 +33,19 @@ class Public::OrdersController < ApplicationController
       @order.address = @address.address
       @order.name = @address.name
     end
+    @in_cart_products.each do |in_cart_product|
+      @total = 0
+      @total += in_cart_product.subtotal
+    end
   end
 
   def create
     @order = Order.new(order_params)
-    if @order.save
-      redirect_to order_thanks_path
-    end
+    @order.save
+    redirect_to order_thanks_path
+  end
+
+  def thanks
   end
 
   def show
@@ -48,6 +55,6 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :address_id, :postcode, :address, :name)
+    params.require(:order).permit(:payment_method, :address_id, :postcode, :address, :name, :bill, :order_status)
   end
 end
