@@ -19,7 +19,9 @@
           </tr>
           <tr>
             <td>注文商品</td>
-            <td><%= InCartProduct.all %></td>
+            <% o.order_details.each do |o| %>
+            <td><%= o.product.name %></td>
+            <%end%>
           </tr>
           <tr>
             <td>支払金額</td>

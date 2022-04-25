@@ -69,8 +69,8 @@
             <%= f.hidden_field :postcode, :value => @order.postcode %>
             <%= f.hidden_field :address, :value => @order.address %>
             <%= f.hidden_field :name, :value => @order.name %>
-            <%= f.hidden_field :order_status, :value => 0 %>
-            <%#72行目消してもよいがテーブルのカラムを変更しないといけない(defalt値を設定する)%>
+            <%#= f.hidden_field :order_status, :value => 0 %>
+            <%#72行目消してテーブルのカラムを変更した(defalt値を設定した)マイグレーションファイルを%>
           </tr>
           <tr>
             <td><%= f.submit "注文を確定する" %></td>
