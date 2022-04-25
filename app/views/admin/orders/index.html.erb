@@ -16,8 +16,9 @@
               <%= o.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
             <% end %>
           </td>
-          <td></td>
-          <td><%= o.order_details</td>
+          <td><%= o.name %></td>
+          <td><%= o.quantity %></td>
+          <td><%= o.order_status %></td>
         </tr>
         <% end %>
       </tbody>
