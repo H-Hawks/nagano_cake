@@ -1,5 +1,4 @@
 class OrderDetail < ApplicationRecord
-  belongs_to :end_users
   belongs_to :order
   belongs_to :product
   

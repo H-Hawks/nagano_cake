@@ -3,32 +3,32 @@
   <table>
     <thead>
       <tr>
-      <%= form_with model: @order, url: admin_order_path do |o| %>
+      <%= form_with model: @order, url: admin_order_path, method: :patch do |o| %>
         <th><b>購入者</b></th>
-        <td><%= o.name %></td>
+        <td><%= @order.name %></td>
         </tr>
         <tr>
           <th><b>注文日</b></th>
-          <td><%= o.created_at.strftime("%Y/%m/%d") %></td>
+          <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
         </tr>
         <tr>
           <th><b>配送先</b></th>
           <td>
-            〒<%= o.postcode %><br>
-            <%= o.address %><br>
-            <%= o.neme %>
+            〒<%= @order.postcode %><br>
+            <%= @order.address %><br>
+            <%= @order.name %>
           </td>
         </tr>
         <tr>
           <th><b>支払方法</b></th>
-          <td><%= o.payment_method %></td>
+          <td><%= @order.payment_method %></td>
         </tr>
         <tr>
           <th><b>注文ステータス</b></th>
           <td>
-            <%= form_with model: @order, url: admin_order_path, method: :patch do |o| %>
-            <%= o.select :order_status, Order.order_statuses.keys, class: "order_status" %>
+            <%= o.select :order_status, Order.order_statuses_i18n.keys, class: "order_status" %>
             <%= o.submit "更新" , class: "btn btn-outline-success" %>
+          <% end %>
           </td>
         </tr>
     </thead>
