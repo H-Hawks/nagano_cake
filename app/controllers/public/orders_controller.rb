@@ -1,7 +1,15 @@
 class Public::OrdersController < ApplicationController
+  
+  before_action :authenticate_end_user!
+
+  
   def new
     @order = Order.new
     @user = current_end_user
+  end
+  
+  def index
+    
   end
 
   def comfirm
