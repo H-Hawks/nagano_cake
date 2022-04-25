@@ -6,6 +6,7 @@ Rails.application.routes.draw do
    get "order/thanks" => "order#thanks"
    resources :products, only:[:index,:show]
    resources :in_cart_products, only:[:index,:create,:update,:destroy]
+   delete '/in_cart_products' => 'in_cart_products#all_destroy'
    resources :orders, only:[:new,:index,:create,:show]
    resource :end_user, only:[:show,:edit,:update,:unsubcribe,:withdrawl]
    get 'end_users/unsubcribe' => 'end_users#unsubcribe'
