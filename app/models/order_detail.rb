@@ -1,6 +1,6 @@
 class OrderDetail < ApplicationRecord
-  belongs_to :end_users
-  belongs_to :orders
+  belongs_to :product
+  belongs_to :order
 
   def subtotal
     product.add_tax_price * quantity
