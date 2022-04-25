@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
   <head>
     <title>NaganoCake</title>
@@ -23,7 +23,7 @@
               <ul class="navbar-nav ml-auto">
               <% if end_user_signed_in? %>
                 <li>
-                  <%= link_to  end_user_my_page_path, class: "nav-link text-light" do %>
+                  <%= link_to  end_users_my_page_path(current_end_user.id), class: "nav-link text-light" do %>
                     <button type="button" class="btn btn-outline-light btn-sm">マイページ</button>
                   <% end %>
                 </li>

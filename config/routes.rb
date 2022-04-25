@@ -8,9 +8,13 @@ Rails.application.routes.draw do
     post 'order' => 'orders#create'
    end
    resources :in_cart_products, only:[:index,:create,:update,:destroy]
-   resources :orders, only:[:new,:create,:show]
-   get '/end_user/my_page' => 'end_users#show'
+   resources :orders, only:[:new,:index,:create,:show]
    resource :end_user, only:[:show,:edit,:update,:unsubcribe,:withdrawl]
+   get 'end_users/unsubcribe' => 'end_users#unsubcribe'
+   patch 'end_users/withdrawl' => 'end_users#withdrawl'
+   get 'edit/end_users' => 'end_users#edit'
+   patch 'update/end_users' => 'end_users#update'
+   get '/end_users/my_page' => 'end_users#show'
    resources :addresses,only: [:index,:create,:edit,:update,:destroy]
   end
   namespace :admin do
