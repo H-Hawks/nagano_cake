@@ -1,1 +1,42 @@
-注文履歴一覧
+<div class="container">
+  <div class="row">
+    <div class="col-md-15">
+      <%= form_with model: @order, url: order_comfirm_path, local: true do |f| %>
+      <table class="table table-borderless">
+        <thead class="thead-light">
+          <tr>
+            <th>注文履歴一覧</th>
+          </tr>
+        </thead>
+        <% @order.each do |o| %>
+        <tbody>
+          <tr>
+            <td>注文日</td>
+            <td><%= o.created_at %></td>
+          </tr>
+          <tr>
+            <td>配送先</td>
+            <td><%= o.postcode %><%= o.address %><%= o.name %></td>
+          </tr>
+          <tr>
+            <td>注文商品</td>
+            <td><%= InCartProduct.all %></td>
+          </tr>
+          <tr>
+            <td>支払金額</td>
+            <td><%= o.bill %></td>
+          </tr>
+          <tr>
+            <td>ステータス</td>
+            <td><%= o.order_status %></td>
+          </tr>
+          <tr>
+            <td>注文詳細</td>
+            <td><%= link_to "表示する", order_path(o.id) %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 class OrderDetail < ApplicationRecord
   belongs_to :end_users
-  belongs_to :orders
+  belongs_to :order
   belongs_to :product
   
   enum production_status: {
@@ -9,6 +9,7 @@ class OrderDetail < ApplicationRecord
     製作中: 2,
     製作完了: 3,
   }
+  
   def subtotal
     product.add_tax_price * quantity
   end

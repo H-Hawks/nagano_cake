@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-15">
-      <%= form_with model: @order, url: orders_path, local: true do |f| %>
+      <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
       <table class="table table-borderless">
         <thead class="thead-light">
           <tr>
@@ -29,7 +29,8 @@
           <% end %>
           <tr>
             <td>送料</td>
-            <td><%= 800 %></td>
+            <td><%= @order.shipping_fee %></td>
+            <%= f.hidden_field :shipping_fee, :value => @order.shipping_fee %>
           </tr>
           <tr>
             <td>商品合計</td>
@@ -37,8 +38,8 @@
           </tr>
           <tr>
             <td>請求金額</td>
-            <td><%= @total + 800 %></td>
-            <%= f.hidden_field :bill, :value => @total + 800 %>
+            <td><%= @total + @order.shipping_fee %></td>
+            <%= f.hidden_field :bill, :value => @total + @order.shipping_fee %>
           </tr>
         </tbody>
       </table>
@@ -68,7 +69,8 @@
             <%= f.hidden_field :postcode, :value => @order.postcode %>
             <%= f.hidden_field :address, :value => @order.address %>
             <%= f.hidden_field :name, :value => @order.name %>
-            <%= f.hidden_field :order_status, :value => :waiting_for_deposit %>
+            <%= f.hidden_field :order_status, :value => 0 %>
+            <%#72行目消してもよいがテーブルのカラムを変更しないといけない(defalt値を設定する)%>
           </tr>
           <tr>
             <td><%= f.submit "注文を確定する" %></td>
