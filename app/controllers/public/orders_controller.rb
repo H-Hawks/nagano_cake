@@ -9,7 +9,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = current_end_user.orders.all
   end
 
   def comfirm
@@ -42,6 +42,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    order_params[:order_status] = order_params[:order_status].to_i
     @order = Order.new(order_params)
     @order.end_user_id = current_end_user.id
     @order.save
