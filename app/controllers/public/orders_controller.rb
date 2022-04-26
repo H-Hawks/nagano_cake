@@ -29,11 +29,10 @@ class Public::OrdersController < ApplicationController
       @order.address = @address.address
       @order.name = @address.name
     elsif params[:order][:select_address] == '2'
-      @address = Address.find(params[:order][:postcode, :address, :name])
       @order.payment_method = params[:order][:payment_method]
-      @order.postcode = @address.postcode
-      @order.address = @address.address
-      @order.name = @address.name
+      @order.postcode = params[:order][:postcode]
+      @order.address = params[:order][:address]
+      @order.name = params[:order][:name]
     end
     @total = 0
     @in_cart_products.each do |in_cart_product|
@@ -77,7 +76,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :address_id,
+    params.require(:order).permit(:payment_method,
     :postcode, :address, :name, :bill, :order_status, :shipping_fee)
   end
 end
