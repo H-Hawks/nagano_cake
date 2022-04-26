@@ -1,41 +1,90 @@
 <div class="container">
   <div class="row">
     <div class="col-md-15">
-      <%= form_with model: @order, url: order_comfirm_path, local: true do |f| %>
       <table class="table table-borderless">
         <thead class="thead-light">
           <tr>
-            <th>注文履歴一覧</th>
+            <th>注文履歴詳細</th>
           </tr>
         </thead>
-        <% @order.each do |o| %>
+        <thead>
+          <tr><th>注文情報</th></tr>
+        </thead>
         <tbody>
           <tr>
             <td>注文日</td>
-            <td><%= o.created_at %></td>
+            <td><%= @order.created_at %></td>
           </tr>
           <tr>
             <td>配送先</td>
-            <td><%= o.postcode %><%= o.address %><%= o.name %></td>
-          </tr>
-          <tr>
-            <td>注文商品</td>
-            <td><%= InCartProduct.all %></td>
+            <td>〒<%= @order.postcode %></td>
+            <td><%= @order.address%></td>
+            <td><%= @order.name %></td>
           </tr>
           <tr>
             <td>支払金額</td>
-            <td><%= o.bill %></td>
+            <td><%= @order.bill %></td>
           </tr>
           <tr>
             <td>ステータス</td>
-            <td><%= o.order_status %></td>
-          </tr>
-          <tr>
-            <td>注文詳細</td>
-            <td><%= link_to "表示する", order_path(o.id) %></td>
+            <td><%= @order.order_status_i18n %></td>
           </tr>
         </tbody>
-        <% end %>
+        <thead>
+          <tr><th>注文内容</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>商品名</td>
+            <% @order.order_details.each do |o| %>
+            <td><%= o.product.name %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>単価(税込)</td>
+            <% @order.order_details.each do |o| %>
+            <td><%= o.product.add_tax_price %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>数量</td>
+            <% @order.order_details.each do |o| %>
+            <td><%= o.quantity %></td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>小計</td>
+            <% @order.order_details.each do |o| %>
+            <td><%= o.subtotal %></td>
+            <% end %>
+          </tr>
+        </tbody>
+        <thead>
+          <tr><th>請求情報</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>商品合計</td>
+            <td><%= @total %></td>
+          </tr>
+          <tr>
+            <td>配送料</td>
+            <td><%= @order.shipping_fee %></td>
+          </tr>
+          <tr>
+            <td>ご請求額</td>
+            <td><%= @total + @order.shipping_fee %></td>
+          </tr>
+        </tbody>
+        <thead><tr><th>支払方法</th></tr></thead>
+        <tbody><tr><td><%= @order.payment_method_i18n %></td></tr></tbody>
+        <thead><tr><th>お届け先</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>〒<%= @order.postcode %><%= @order.address %></td>
+            <td><%= @order.name %></td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
