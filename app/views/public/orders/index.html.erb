@@ -15,7 +15,9 @@
           </tr>
           <tr>
             <td>配送先</td>
-            <td><%= o.postcode %><%= o.address %><%= o.name %></td>
+            <td>〒<%= o.postcode %></td>
+            <td><%= o.address %></td>
+            <td><%= o.name %></td>
           </tr>
           <tr>
             <td>注文商品</td>
@@ -33,7 +35,7 @@
           </tr>
           <tr>
             <td>注文詳細</td>
-            <td></td>
+            <td><%= link_to "注文詳細", order_path(o.id) %></td>
           </tr>
         </tbody>
         <% end %>

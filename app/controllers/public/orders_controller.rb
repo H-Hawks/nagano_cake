@@ -35,8 +35,8 @@ class Public::OrdersController < ApplicationController
       @order.address = @address.address
       @order.name = @address.name
     end
+    @total = 0
     @in_cart_products.each do |in_cart_product|
-      @total = 0
       @total += in_cart_product.subtotal
     end
   end
@@ -65,8 +65,13 @@ class Public::OrdersController < ApplicationController
 
 
   def show
+    @orders = current_end_user.orders.all
     @order = Order.find(params[:id])
-    @in_cart_products = InCartProduct.all
+    @order.shipping_fee = 800
+    @total = 0
+    @order.order_details.each do |o|
+      @total += o.subtotal
+    end
   end
 
   private
