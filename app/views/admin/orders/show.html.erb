@@ -45,9 +45,9 @@
             <td><p><%= o.quantity %></p></td>
             <td><p><%= o.tax_price*o.quantity %></p></td>
             <td>
-              <%= form_with model: @order_details, url: admin_order_detail_path, method: :patch do |o|%>
-                <%= o.select :production_status, OrderDetail.production_statuses.keys.map{|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]},class: "form-control"%>
-                <%= o.submit "更新", class:"btn btn-success"%>
+              <%= form_with model: o, url: admin_order_detail_path(o), method: :patch do |f|%>
+                <%= f.select :production_status, OrderDetail.production_statuses.keys.map{|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]},class: "form-control"%>
+                <%= f.submit "更新", class:"btn btn-outline-success"%>
               <% end %>
             </td>
           </tr>
@@ -60,7 +60,6 @@
           <th>請求金額合計</th>
           <td><%= @order.bill %></td>
         </tr>
-        
     </thead>
   </table>
 </div>
