@@ -14,7 +14,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container col-md-12">
-          <a class="navbar-brand"><%= link_to image_tag("nagano_logo.png", width: '30%', height: '30%'), root_path %></a>
+          <%= link_to image_tag("nagano_logo.png", width: '30%', height: '30%'), root_path %>
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -23,69 +23,69 @@
               <% if end_user_signed_in? %>
                 <li>
                   <%= link_to  end_users_my_page_path(current_end_user.id), class: "nav-link text-light" do %>
-                    <button type="button" class="btn btn-outline-light btn-sm">マイページ</button>
+                    <span class="btn btn-outline-light btn-sm">マイページ</span>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to  products_path, class: "nav-link text-light" do %>
-                    <button type="button" class="btn btn-outline-light btn-sm">商品一覧</button>
+                    <span class="btn btn-outline-light btn-sm">商品一覧</span>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to  in_cart_products_path, class: "nav-link text-light" do %>
-                    <button type="button" class="btn btn-outline-light btn-sm">カート</button>
+                    <span class="btn btn-outline-light btn-sm">カート</span>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to destroy_end_user_session_path, method: :delete, class: "nav-link text-light" do %>
-                    <button type="button" class="btn btn-outline-light btn-sm">ログアウト</button>
+                    <span class="btn btn-outline-light btn-sm">ログアウト</span>
                   <% end %>
                 </li>
               <% elsif admin_signed_in? %>
                 <li>
                   <%= link_to admin_products_path, class: "nav-link text-light" do %>
-                    <button type="button" class="btn btn-outline-light btn-sm">商品一覧</button>
+                    <span class="btn btn-outline-light btn-sm">商品一覧</span>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to admin_end_users_path, class: "nav-link text-light" do %>
-                    <button type="button" class="btn btn-outline-light btn-sm">会員一覧</button>
+                    <span class="btn btn-outline-light btn-sm">会員一覧</span>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to admin_orders_path, class: "nav-link text-light" do %>
-                    <button type="button" class="btn btn-outline-light btn-sm">注文履歴一覧</button>
+                    <span class="btn btn-outline-light btn-sm">注文履歴一覧</span>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to admin_genres_path, class: "nav-link text-light" do %>
-                    <button type="button" class="btn btn-outline-light btn-sm">ジャンル一覧</button>
+                    <span class="btn btn-outline-light btn-sm">ジャンル一覧</span>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-light" do %>
-                    <button type="button" class="btn btn-outline-light btn-sm">ログアウト</button>
+                    <span class="btn btn-outline-light btn-sm">ログアウト</span>
                   <% end %>
                 </li>
               <% else %>
                 <li>
                   <%= link_to homes_about_path, class: "nav-link text-light" do %>
-                    <button type="button" class="btn btn-outline-light btn-sm">About</button>
+                    <span class="btn btn-outline-light btn-sm">About</span>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to products_path, class: "nav-link text-light" do %>
-                    <button type="button" class="btn btn-outline-light btn-sm">商品一覧</button>
+                    <span class="btn btn-outline-light btn-sm">商品一覧</span>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to new_end_user_registration_path, class: "nav-link text-light" do %>
-                    <button type="button" class="btn btn-outline-light btn-sm">新規登録</button>
+                    <span class="btn btn-outline-light btn-sm">新規登録</span>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to new_end_user_session_path, class: "nav-link text-light" do %>
-                    <button type="button" class="btn btn-outline-light btn-sm">ログイン</button>
+                    <span class="btn btn-outline-light btn-sm">ログイン</span>
                   <% end %>
                 </li>
               <% end %>
@@ -94,6 +94,15 @@
         </div>
       </nav>
     </header>
+    <main class="mb-auto" style="min-height: 75vh;">
     <%= yield %>
+    </main>
+    <footer class="bg-dark text-white pt-5 pb-4">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="mx-auto">Team Hawks</div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
