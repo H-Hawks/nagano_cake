@@ -20,7 +20,7 @@
           <th scope="row"><b>支払方法</b></th>
           <td><%= @order.payment_method %></td>
         </tr>
-        <tr> 
+        <tr>
           <th scope="row"><b>注文ステータス</b></th>
           <td>
           <%= form_with model: @order, url: admin_order_path, method: :patch do |o| %>
@@ -32,20 +32,20 @@
     </tbody>
   </table>
  <div class="row">
-  <div class="col-sm-9">   
+  <div class="col-sm-9">
        <table class="table">
+        <thead>
         <tr>
-         <thead>
           <th><b>商品名</b></th>
           <th><b>単価(税込)</b></th>
           <th><b>数量</b></th>
           <th><b>小計</b></th>
           <th><b>製作ステータス</b></th>
-         </thead>
         </tr>
-        <tr>
-         <tbody>
-        <% @order.order_details.each do |o| %>
+        </thead>
+        <tbody>
+         <% @order.order_details.each do |o| %>
+         <tr>
             <td><p><%= o.product.name %></p></td>
             <td><p><%= o.tax_price %></p></td>
             <td><p><%= o.quantity %></p></td>
@@ -55,12 +55,12 @@
                 <%= f.select :production_status, OrderDetail.production_statuses.keys.map{|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]},class: "form-control"%>
                 <%= f.submit "更新", class:"btn btn-success"%>
               <% end %>
-            <% end %>
             </td>
-          </tbody>
          </tr>
-        </table>
-  </div> 
+         <% end %>
+        </tbody>
+       </table>
+  </div>
   <div class="col-sm-3">
        <table class="table table-borderless">
         <tr>
