@@ -1,50 +1,45 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-8 offset-1 mt-3">
+     <h2><span class="bg-light"><%= @end_user.last_name %><%= @end_user.first_name %>さんの会員詳細</span></h2>
       <table class="table table-borderless">
-        <thead class="thead-light">
-          <tr>
-            <th><%= @end_user.last_name %><%= @end_user.first_name %>さんの会員詳細</th>
-          </tr>
-        </thead>
         <tbody>
           <tr>
-            <td>会員ID</td>
+            <th style="width: 20%">会員ID</th>
             <td><%= @end_user.id %></td>
           </tr>
           <tr>
-            <td>氏名</td>
+            <th>氏名</th>
             <td><%= @end_user.last_name %><%= @end_user.first_name %></td>
           </tr>
           <tr>
-            <td>フリガナ</td>
+            <th>フリガナ</th>
             <td><%= @end_user.last_name_kana %><%= @end_user.first_name_kana %></td>
           </tr>
           <tr>
-            <td>郵便番号</td>
+            <th>郵便番号</th>
             <td><%= @end_user.postcode %></td>
           </tr>
           <tr>
-            <td>住所</td>
+            <th>住所</th>
             <td><%= @end_user.address %></td>
           </tr>
           <tr>
-            <td>電話番号</td>
+            <th>電話番号</th>
             <td><%= @end_user.phone_number %></td>
           </tr>
           <tr>
-            <td>メールアドレス</td>
+            <th>メールアドレス</th>
             <td><%= @end_user.email %></td>
           </tr>
           <tr>
-            <td>会員ステータス</td>
+            <th>会員ステータス</th>
             <td><%= @end_user.is_deleted ? '退会' : '有効' %></td>
           </tr>
-        </tbody>
-        <tbody>
           <tr>
-            <td><%= link_to "編集する", edit_admin_end_user_path(@end_user.id) %></td>
-            <td><%= link_to "注文履歴一覧を見る", admin_orders_path %></td>
+            <th></th>
+            <td><%= link_to "編集する", edit_admin_end_user_path(@end_user.id), class: "btn btn-success" %></td>
+            <td><%= link_to "注文履歴一覧を見る", admin_orders_path, class: "btn btn-primary" %></td>
           </tr>
         </tbody>
       </table>
