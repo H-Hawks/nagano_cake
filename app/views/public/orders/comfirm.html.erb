@@ -4,7 +4,7 @@
    <h2><span class="bg-light">注文情報確認</span></h2>
     <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
       <table class="table table-bordered">
-       <thead>
+       <thead class="bg-light">
           <tr>
             <th>商品名</th>
             <th>単価(税込)</th>
@@ -23,20 +23,20 @@
       </table>
      <% end %>
   </div>
-  <div class="col-sm-4">
+  <div class="col-sm-4 mt-5">
     <table class="table-bordered">
       <tbody>
         <tr>
-         <th scope="row">送料</th>
-         <td><%= @order.shipping_fee %></td>
+         <th class="bg-light" width="150">送料</th>
+         <td width="150"><%= @order.shipping_fee %></td>
          <%= f.hidden_field :shipping_fee, :value => @order.shipping_fee %>
         </tr> 
         <tr>
-          <th scope="row">商品合計</th>
+          <th class="bg-light" scope="row">商品合計</th>
           <td><%= @total %></td>
         </tr>
         <tr>
-          <th scope="row">請求金額</th>
+          <th class="bg-light" scope="row">請求金額</th>
           <td><%= @total + @order.shipping_fee %></td>
           <%= f.hidden_field :bill, :value => @total + @order.shipping_fee %>
         </tr>
@@ -71,4 +71,3 @@
     <% end %>
     
   </div>
-</div>
