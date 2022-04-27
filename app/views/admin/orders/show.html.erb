@@ -32,20 +32,20 @@
     </tbody>
   </table>
  <div class="row">
-  <div class="col-sm-9">   
+  <div class="col-sm-9">
        <table class="table">
+        <thead>
         <tr>
-         <thead>
           <th>商品名</th>
           <th>単価(税込)</th>
           <th>数量</th>
           <th>小計</th>
-          <th>製作ステータス<</th>
-         </thead>
+           <th>製作ステータス</th>
         </tr>
-        <tr>
-         <tbody>
-        <% @order.order_details.each do |o| %>
+        </thead>
+        <tbody>
+         <% @order.order_details.each do |o| %>
+         <tr>
             <td><p><%= o.product.name %></p></td>
             <td><p><%= o.tax_price %></p></td>
             <td><p><%= o.quantity %></p></td>
@@ -55,12 +55,12 @@
                 <%= f.select :production_status, OrderDetail.production_statuses.keys.map{|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]},class: "form-control"%>
                 <%= f.submit "更新", class:"btn btn-success"%>
               <% end %>
-            <% end %>
             </td>
-          </tbody>
          </tr>
-        </table>
-  </div> 
+         <% end %>
+        </tbody>
+       </table>
+  </div>
   <div class="col-sm-3">
        <table class="table table-borderless">
         <tr>
