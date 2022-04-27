@@ -1,17 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-15">
+    <div class="col-md-15 mt-3">
+       <h2><span class="bg-light">注文情報入力</span></h2>
       <%= form_with model: @order, url: order_comfirm_path, local: true do |f| %>
       <table class="table table-borderless">
-        <thead class="thead-light">
-          <tr>
-            <th>注文情報入力</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>支払方法</td>
-          </tr>
+         <td>支払方法</td>
           <tr>
             <td><%= f.radio_button :payment_method, :credit_card %>
                 <%= f.label :payment_method, "クレジットカード", checked: true %>
@@ -45,7 +38,7 @@
               </td>
             </tr>
             <tr>
-              <td><%= f.submit "確認画面に進む" %></td>
+              <td><%= f.submit "確認画面に進む", class: "btn btn-primary" %></td>
             </tr>
           </tr>
         </tbody>
