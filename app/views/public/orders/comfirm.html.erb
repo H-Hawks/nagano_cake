@@ -24,11 +24,11 @@
      <% end %>
   </div>
   <div class="col-sm-4 mt-5">
-    <table class="table-bordered">
+    <table class="table table-bordered">
       <tbody>
         <tr>
          <th class="bg-light" width="150">送料</th>
-         <td width="150"><%= @order.shipping_fee %></td>
+         <td><%= @order.shipping_fee %></td>
          <%= f.hidden_field :shipping_fee, :value => @order.shipping_fee %>
         </tr> 
         <tr>
