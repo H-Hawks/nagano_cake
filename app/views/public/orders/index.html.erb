@@ -1,16 +1,16 @@
-<div class="d-flex align-items-center justify-content-center container">
+<div class="container">
   <div class="row">
-    <div class="col-md-15">
-      <table class="table table-border">
-        <div align="center">注文履歴一覧</div>
+    <div class="col-md-11 mx-auto mt-3">
+     <h2 class="ml-3"><span class="bg-light">注文履歴一覧</span><h2>
+      <table class="table table-bordered">
         <thead>
           <tr>
-            <th>注文日</th>
-            <th>配送先</th>
-            <th>注文商品</th>
-            <th>支払金額</th>
-            <th>ステータス</th>
-            <th></th>
+            <th class="table-secondary">注文日</th>
+            <th class="table-secondary">配送先</th>
+            <th class="table-secondary">注文商品</th>
+            <th class="table-secondary">支払金額</th>
+            <th class="table-secondary">ステータス</th>
+            <th class="table-secondary">注文詳細</th>
           </tr>
         </thead>
         <% @orders.each do |o| %>
@@ -27,9 +27,9 @@
               <p><%= o.product.name %></p>
             <%end%>
             </td>
-            <td><%= o.bill %></td>
+            <td><%= o.bill %>円</td>
             <td><%= o.order_status_i18n %></td>
-            <td><%= link_to "注文詳細", order_path(o.id) %></td>
+            <td><%= link_to "表示する", order_path(o.id), class: "btn btn-primary" %></td>
           </tr>
         </tbody>
         <% end %>
