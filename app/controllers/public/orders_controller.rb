@@ -13,6 +13,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def comfirm
+    @orders = current_end_user.orders.all
     @in_cart_products = current_end_user.in_cart_products
     @order = Order.new(order_params)
     @order.shipping_fee = 800

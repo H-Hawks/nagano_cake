@@ -20,8 +20,8 @@
             <td><%= i.subtotal %></td>
           </tr>
         </tbody>
-      </table>
      <% end %>
+    </table>
   </div>
   <div class="col-sm-4 mt-5">
     <table class="table table-bordered">
@@ -37,9 +37,11 @@
         </tr>
         <tr>
           <th class="bg-light" scope="row">請求金額</th>
-          <td><%= @total + @order.shipping_fee %></td>
+          <td><%= @total +@order.shipping_fee %></td>
           <%= f.hidden_field :bill, :value => @total + @order.shipping_fee %>
         </tr>
+      
+       </tbody>
      </table>
   </div>
  </div>
