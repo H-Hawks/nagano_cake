@@ -1,92 +1,73 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-15">
-      <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
-      <table class="table table-borderless">
-        <thead class="thead-light">
+ <div class="row">
+  <div class="col-sm-8 mt-3">
+   <h2><span class="bg-light">注文情報確認</span></h2>
+    <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+      <table class="table table-bordered">
+       <thead class="bg-light">
           <tr>
-            <th>注文情報確認</th>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
           </tr>
-        </thead>
-
+     <% @in_cart_products.each do |i| %>
         <tbody>
           <tr>
-            <td>商品名</td>
-            <% @in_cart_products.each do |i| %>
             <td><%= i.product.name %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td>単価(税込)</td>
-            <% @in_cart_products.each do |i| %>
             <td><%= i.product.add_tax_price %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td>数量</td>
-            <% @in_cart_products.each do |i| %>
             <td><%= i.quantity %></td>
-            <% end %>
-          </tr>
-          <tr>
-            <td>小計</td>
-            <% @in_cart_products.each do |i| %>
             <td><%= i.subtotal %></td>
-            <% end %>
           </tr>
-
-          <tr>
-            <td>送料</td>
-            <td><%= @order.shipping_fee %></td>
-            <%= f.hidden_field :shipping_fee, :value => @order.shipping_fee %>
-          </tr>
-          <tr>
-            <td>商品合計</td>
-            <td><%= @total %></td>
-          </tr>
-          <tr>
-            <td>請求金額</td>
-            <td><%= @total + @order.shipping_fee %></td>
-            <%= f.hidden_field :bill, :value => @total + @order.shipping_fee %>
-          </tr>
-
         </tbody>
       </table>
-      <table class="table table-borderless">
-        <thead class="thead-light">
-          <tr>
-            <th>支払方法</th>
-          </tr>
-        </thead>
-      </table>
+     <% end %>
+  </div>
+  <div class="col-sm-4 mt-5">
+    <table class="table table-bordered">
       <tbody>
         <tr>
-          <td><%= @order.payment_method_i18n %></td>
-          <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+         <th class="bg-light" width="150">送料</th>
+         <td><%= @order.shipping_fee %></td>
+         <%= f.hidden_field :shipping_fee, :value => @order.shipping_fee %>
+        </tr> 
+        <tr>
+          <th class="bg-light" scope="row">商品合計</th>
+          <td><%= @total %></td>
         </tr>
-      </tbody>
-      <table class="table table-borderless">
-        <thead class="thead-light">
-          <tr>
-            <th>お届け先</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>〒<%= @order.postcode %><%= @order.address %></td>
-            <td><%= @order.name %></td>
-            <%= f.hidden_field :postcode, :value => @order.postcode %>
-            <%= f.hidden_field :address, :value => @order.address %>
-            <%= f.hidden_field :name, :value => @order.name %>
-            <%#= f.hidden_field :order_status, :value => 0 %>
-            <%#72行目消してテーブルのカラムを変更した(defalt値を設定した)マイグレーションファイルを追加%>
-          </tr>
-          <tr>
-            <td><%= f.submit "注文を確定する" %></td>
-          </tr>
-        </tbody>
-      </table>
-      <% end %>
-    </div>
+        <tr>
+          <th class="bg-light" scope="row">請求金額</th>
+          <td><%= @total + @order.shipping_fee %></td>
+          <%= f.hidden_field :bill, :value => @total + @order.shipping_fee %>
+        </tr>
+     </table>
   </div>
-</div>
+ </div>
+ <div class="row">
+  <div class="col-sm-8">
+    <table class="table table-borderless">
+     <tr>
+      <th style="width :20%">支払方法</th>
+       <td><%= @order.payment_method_i18n %></td>
+       <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+     </tr>
+     <tr>
+      <th>お届け先</th>
+       <td>〒<%= @order.postcode %><%= @order.address %><br>
+           <%= @order.name %></td>
+     </tr>
+    </table>
+  </div>
+ </div>
+    <%= f.hidden_field :postcode, :value => @order.postcode %>
+    <%= f.hidden_field :address, :value => @order.address %>
+    <%= f.hidden_field :name, :value => @order.name %>
+    <%#= f.hidden_field :order_status, :value => 0 %>
+    <%#72行目消してテーブルのカラムを変更した(defalt値を設定した)マイグレーションファイルを追加%>
+        
+   <div class="text-center">       
+    <%= f.submit "注文を確定する", class: "btn btn-success" %>
+   </div>       
+    <% end %>
+    
+  </div>
