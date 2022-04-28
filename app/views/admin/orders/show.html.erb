@@ -44,14 +44,14 @@
         </tr>
         </thead>
         <tbody>
-         <% @order.order_details.each do |o| %>
+         <% @order.order_details.each do |order_detail| %>
          <tr>
-            <td><p><%= o.product.name %></p></td>
-            <td><p><%= o.tax_price %></p></td>
-            <td><p><%= o.quantity %></p></td>
-            <td><p><%= o.tax_price*o.quantity %></p></td>
+            <td><p><%= order_detail.product.name %></p></td>
+            <td><p><%= order_detail.tax_price %></p></td>
+            <td><p><%= order_detail.quantity %></p></td>
+            <td><p><%= order_detail.tax_price*order_detail.quantity %></p></td>
             <td>
-              <%= form_with model: o, url: admin_order_detail_path(o), method: :patch do |f|%>
+              <%= form_with model: order_detail, url: admin_order_detail_path(order_id: @order.id, id: order_detail.id), method: :patch do |f|%>
                 <%= f.select :production_status, OrderDetail.production_statuses.keys.map{|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]},class: "form-control"%>
                 <%= f.submit "更新", class:"btn btn-success"%>
               <% end %>
